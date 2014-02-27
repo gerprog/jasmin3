@@ -17,8 +17,13 @@ var Converter = (function() {
         },
 
         convertFromMetricToImperial: function(weight) {
-            return weight / converterValue;
-        }
+            var num = parseInt(weight);
 
+            if (isNaN(num) == true) {
+                throw new Error ("Not a number");
+            }
+            num = converterValue / num;
+            return Math.round(num);
+        }
     }
-}())
+}());
